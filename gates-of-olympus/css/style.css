@@ -1029,9 +1029,6 @@ html {
   .page__books-full {
     display: none
   }
-  .page__columns {
-    justify-content: flex-start!important
-  }
   .page .game__roulette-wrapper {
     position: relative;
     z-index: 10
