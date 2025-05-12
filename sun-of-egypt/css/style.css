@@ -418,7 +418,7 @@ html {
   transition: all .3s
 }
 .page__items-mob-item.item-all {
-  bottom: 0;
+  bottom: 30%;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -683,6 +683,7 @@ html {
 }
 .marquee-row {
   overflow-x: hidden;
+  min-height: min(5vmin,5vmax);
   bottom: min(3vmin,2vmax);
   display: inline-flex;
   align-items: center
@@ -1339,8 +1340,8 @@ html {
 }
 @media (max-height:500px) {
   .page .game-container>.game__roulette .wheel-spin-button {
-    min-height: min(20vmin,17.5vmax);
-    min-width: min(20vmin,17.5vmax)
+    min-height: min(14vmin,8vmax);
+    min-width: min(14vmin,8vmax)
   }
   .page .game-container .game__roulette .wheel-pointer img {
     width: min(3vmin,3vmax)
