@@ -509,7 +509,7 @@
         }));
         (function() {
             function moveElements() {
-                const isMobile = window.innerWidth <= 480;
+                const isMobile = window.innerWidth <= 500;
                 const pageCounter = document.querySelector(".page__counter");
                 const rouletteCounter = document.querySelector(".game__roulette-counter");
                 const pageLogo = document.querySelector(".page__game-logo");
