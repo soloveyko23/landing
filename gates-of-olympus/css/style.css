@@ -619,6 +619,15 @@ html {
   width: min(5vmin,2vmax);
   height: min(5vmin,2vmax)
 }
+@media (min-width:63.99875em) {
+  .page .game-container {
+    margin-top: min(-3vmin,2vmax)
+  }
+  .button {
+    font-size: min(3.45vmin,1vmax);
+    width: min(40vmin,18vmax)
+  }
+}
 @media (min-width:81.25em) {
   .page .game-container>.game__roulette .wheel-spin-button {
     min-height: min(29vmin,22.5vmax);
@@ -830,15 +839,6 @@ html {
     margin-top: min(-5vmin,-2vmax)
   }
 }
-@media (min-width:64em) {
-  .page .game-container {
-    margin-top: min(-3vmin,2vmax)
-  }
-  .button {
-    font-size: min(3.45vmin,1vmax);
-    width: min(40vmin,18vmax)
-  }
-}
 @media (min-width:90em) {
   .page .game-container .game__roulette .wheel-image img {
     width: min(60vmin,40vmax);
@@ -918,15 +918,6 @@ html {
   }
   .page__right {
     margin-top: min(10vmin,6vmax)
-  }
-}
-@media (max-width:64em) {
-  .page .game-container {
-    margin-top: min(5vmin,4vmax)
-  }
-  .button {
-    width: min(40vmin,25vmax);
-    font-size: min(3.75vmin,1.5vmax)
   }
 }
 @media (max-width:768px) {
@@ -1183,6 +1174,15 @@ html {
     -moz-transform: scale(1.02) translate(-50%,-52%);
     -ms-transform: scale(1.02) translate(-50%,-52%);
     -o-transform: scale(1.02) translate(-50%,-52%)
+  }
+}
+@media (max-width:63.99875em) {
+  .page .game-container {
+    margin-top: min(5vmin,4vmax)
+  }
+  .button {
+    width: min(40vmin,25vmax);
+    font-size: min(3.75vmin,1.5vmax)
   }
 }
 @media (min-width:500px)and (max-width:1024px) {
