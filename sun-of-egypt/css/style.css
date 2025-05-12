@@ -1220,10 +1220,10 @@ html {
   }
   .button {
     background: url(../img/btn-bg-mob.webp) 0 0/100% 100% no-repeat;
-    width: min(60vmin,40vmax);
+    width: min(60vmin,40vmax)!important;
     min-width: 40vmin;
     height: min(12vmin,6vmax);
-    font-size: min(4vmin,3vmax)
+    font-size: min(4vmin,3vmax)!important
   }
   .marquee-row {
     z-index: 7;
@@ -1271,12 +1271,6 @@ html {
     width: 170vw
   }
 }
-@media (max-width:63.99875em)and (max-height:800px) {
-  .page__header {
-    margin: 0!important;
-    max-width: 100%!important
-  }
-}
 @media (max-width:63.99875em) {
   .page .game-container {
     margin-top: min(5vmin,4vmax)
@@ -1308,6 +1302,12 @@ html {
   }
   .page__items-item.item-2 {
     bottom: 65%
+  }
+}
+@media (max-width:63.99875em)and (max-height:800px)and (min-width:768px) {
+  .page__header {
+    margin: 0!important;
+    max-width: 100%!important
   }
 }
 @media (min-width:550px)and (max-width:1024px) {
