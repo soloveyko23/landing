@@ -418,7 +418,7 @@ html {
   transition: all .3s
 }
 .page__items-mob-item.item-all {
-  bottom: 30%;
+  bottom: min(35vmin,20vmax);
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -489,6 +489,7 @@ html {
   font-weight: 900;
   font-style: italic;
   text-align: center;
+  margin-top: min(2vmin,1vmax);
   text-shadow: min(-1vmin,1vmax) min(1vmin,1vmax) min(1.25vmin,1vmax) rgba(0,0,0,.25)
 }
 .page__title p {
@@ -1241,8 +1242,8 @@ html {
     background: url(../img/roullete/button-mob.webp) 0 0/cover no-repeat
   }
   .page .game-container>.game__roulette .wheel-spin-button {
-    min-height: min(20vmin,10.5vmax);
-    min-width: min(20vmin,10.5vmax)
+    min-height: min(18.5vmin,10.5vmax);
+    min-width: min(18.5vmin,10.5vmax)
   }
   .page .game-container .game__roulette .wheel-pointer img {
     width: min(6vmin,3vmax)
