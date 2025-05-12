@@ -196,7 +196,7 @@ body::after {
 .popup__body-content::before {
   content: "";
   position: absolute;
-  inset: -7% -10% -10% -10%;
+  inset: 0 -10% -10% -10%;
   z-index: 2;
   background: url(../img/popup/assets-popup.webp) 0 0/cover no-repeat;
   -webkit-transform: rotate(20deg);
@@ -226,8 +226,50 @@ body::after {
   align-items: center;
   justify-content: center
 }
+.popup-final .popup__content {
+  color: #fff;
+  max-width: min(160vmin,75vmax)
+}
+.popup-final .popup__sparks img {
+  opacity: .5
+}
+.popup-final .popup__header {
+  position: relative;
+  z-index: 10
+}
+.popup-final .popup__header h2 {
+  text-transform: uppercase;
+  text-align: center;
+  font-family: DrukCyr;
+  font-weight: 700;
+  font-style: italic;
+  font-size: min(5vmin,3vmax)
+}
+.popup-final .popup__header h2 span {
+  color: #cf0
+}
+.popup-final .popup__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: min(5vmin,3vmax)
+}
+.popup-final .popup__form {
+  border: 1px solid #363a48;
+  border-radius: 1.5rem;
+  background-color: #0a0a0a;
+  max-width: 25rem;
+  padding: 1.25rem;
+  box-shadow: 0 .25rem 4.6875rem 0 rgba(132,38,255,.5)
+}
+.popup-final .popup__logo-final {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none
+}
 .popup_show {
-  z-index: 150;
+  z-index: 220;
   visibility: visible;
   overflow: auto;
   pointer-events: auto
@@ -353,6 +395,16 @@ body::after {
 }
 html {
   background-color: #cf0
+}
+.show-form .page__columns,
+.show-form .page__counter,
+.show-form .page__marquee,
+.show-form .page__title {
+  opacity: 0;
+  pointer-events: none
+}
+.show-form .page__content {
+  z-index: 200
 }
 .page {
   overflow: hidden
@@ -636,6 +688,9 @@ html {
   .popup__body-content img {
     width: min(70vmin,40vmax)
   }
+  .popup-final .popup__content {
+    justify-content: flex-start
+  }
   .footer__platform-item svg {
     width: min(6vmin,10vmax);
     height: min(5vmin,7vmax)
@@ -808,6 +863,13 @@ html {
   }
 }
 @media (min-width:768px) {
+  .popup-final .popup__pillars {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+  }
   .footer__left .footer__image {
     display: none
   }
@@ -978,6 +1040,9 @@ html {
   }
 }
 @media (max-width:768px) {
+  .popup-final .popup__pillars {
+    display: none
+  }
   .footer__left {
     flex-direction: column
   }

@@ -387,127 +387,187 @@
                 }));
             }
         }), 0);
-        class GameRoulette {
-            constructor() {
-                this.wheelImage = document.querySelector(".wheel-image img");
-                this.spinButtons = Array.from(document.querySelectorAll(".wheel-spin-button"));
-                this.popup1 = document.querySelector(".popup1");
-                this.popup2 = document.querySelector(".popup2");
-                this.buttonNextGame = document.querySelector(".button-next-game");
-                this.gameCountDisplay = document.querySelector(".count");
-                this.gameIndex = 0;
-                this.stopAngles = [ 210, 299 ];
-                this.isSpinning = false;
-                this.remainingGames = 2;
-                this.totalRotation = 0;
-                this.gameCountDisplay.textContent = this.remainingGames;
-                this.spinButtons.forEach((btn => btn.addEventListener("click", (() => this.startGame()))));
-                this.buttonNextGame.addEventListener("click", (() => this.nextGame()));
-                this.wheelImage.style.transform = "rotate(0deg)";
-                this.startButtonAnimation();
-            }
-            startGame() {
-                if (this.isSpinning || this.remainingGames <= 0) return;
-                this.stopButtonAnimation();
-                this.remainingGames--;
-                this.gameCountDisplay.textContent = this.remainingGames;
-                this.spinButtons.forEach((btn => btn.disabled = true));
-                this.isSpinning = true;
-                const targetStopAngle = this.stopAngles[this.gameIndex];
-                const currentPosition = this.totalRotation;
-                let additionalRotation = targetStopAngle - currentPosition % 360;
-                if (additionalRotation <= 0) additionalRotation += 360;
-                const spins = 5 + Math.floor(Math.random() * 3);
-                additionalRotation += 360 * spins;
-                const finalRotation = currentPosition + additionalRotation;
-                this.totalRotation = finalRotation;
-                this.wheelImage.style.transition = "transform 5s cubic-bezier(0.2, 0.8, 0.2, 0.99)";
-                this.wheelImage.style.transform = `rotate(${finalRotation}deg)`;
-                setTimeout((() => {
-                    this.addShakeEffect(finalRotation);
-                    setTimeout((() => {
-                        this.isSpinning = false;
-                        this.showPopup();
-                        if (this.remainingGames > 0) this.spinButtons.forEach((btn => btn.disabled = false));
-                    }), 1e3);
-                }), 5e3);
-            }
-            addShakeEffect(baseAngle) {
-                const shakeOffsets = [ -2, 1, -1, 0 ];
-                let idx = 0;
-                const original = baseAngle;
-                const iv = setInterval((() => {
-                    if (idx >= shakeOffsets.length) {
-                        clearInterval(iv);
-                        this.wheelImage.style.transition = "transform 0.1s ease-out";
-                        this.wheelImage.style.transform = `rotate(${original}deg)`;
-                        return;
-                    }
-                    const angle = original + shakeOffsets[idx++];
-                    this.wheelImage.style.transition = "transform 0.1s ease-out";
-                    this.wheelImage.style.transform = `rotate(${angle}deg)`;
-                }), 100);
-            }
-            showPopup() {
-                document.documentElement.classList.add("popup-show");
-                const popup = this.gameIndex === 0 ? this.popup1 : this.popup2;
-                popup.classList.add("popup_show");
-                popup.style.animation = "popupAppear 0.5s forwards";
-            }
-            nextGame() {
-                const popup = this.gameIndex === 0 ? this.popup1 : this.popup2;
-                popup.style.animation = "popupDisappear 0.3s forwards";
-                setTimeout((() => {
-                    document.documentElement.classList.remove("popup-show");
-                    popup.classList.remove("popup_show");
-                    if (this.gameIndex < this.stopAngles.length - 1) {
-                        this.gameIndex++;
-                        if (this.remainingGames > 0 && !this.isSpinning) this.startButtonAnimation();
-                    }
-                }), 300);
-            }
-            resetGame() {
-                this.gameIndex = 0;
-                this.remainingGames = 2;
-                this.gameCountDisplay.textContent = this.remainingGames;
-                this.isSpinning = false;
-                this.totalRotation = 0;
-                this.spinButtons.forEach((btn => btn.disabled = false));
-                this.wheelImage.style.transition = "none";
-                this.wheelImage.style.transform = "rotate(0deg)";
-                document.documentElement.classList.remove("popup-show");
-                this.popup1.classList.remove("popup_show");
-                this.popup2.classList.remove("popup_show");
-                this.startButtonAnimation();
-            }
-            startButtonAnimation() {
-                this.stopButtonAnimation();
-                this.spinButtons.forEach((btn => btn.classList.add("pulse-animation")));
-                this.buttonGlowInterval = setInterval((() => {
-                    this.spinButtons.forEach((btn => btn.classList.toggle("glow-effect")));
-                }), 1500);
-                this.wheelTeaseInterval = setInterval((() => {
-                    const tease = Math.random() * 10 - 5;
-                    this.wheelImage.style.transition = "transform 0.5s ease-in-out";
-                    this.wheelImage.style.transform = `rotate(${this.totalRotation + tease}deg)`;
-                    setTimeout((() => {
-                        this.wheelImage.style.transition = "transform 0.5s ease-out";
-                        this.wheelImage.style.transform = `rotate(${this.totalRotation}deg)`;
-                    }), 500);
-                }), 3e3);
-            }
-            stopButtonAnimation() {
-                clearInterval(this.buttonGlowInterval);
-                clearInterval(this.wheelTeaseInterval);
-                this.spinButtons.forEach((btn => btn.classList.remove("pulse-animation", "glow-effect")));
-            }
-        }
-        document.addEventListener("DOMContentLoaded", (() => {
-            const gameRoulette = new GameRoulette;
-            const resetButton = document.querySelector(".reset-button");
-            if (resetButton) resetButton.addEventListener("click", (() => gameRoulette.resetGame()));
-        }));
         (function() {
+            let baranClicked = false;
+            const performanceMetrics = {
+                startTime: performance.now(),
+                markPageLoadStart() {
+                    performance.mark("pageLoadStart");
+                },
+                markPageLoadEnd() {
+                    performance.mark("pageLoadEnd");
+                    performance.measure("pageLoad", "pageLoadStart", "pageLoadEnd");
+                    const measures = performance.getEntriesByName("pageLoad");
+                    console.log(`Page load time: ${measures[0].duration.toFixed(2)}ms`);
+                },
+                trackResourceLoadTimes() {
+                    const resources = performance.getEntriesByType("resource");
+                    const slowResources = resources.filter((resource => resource.responseEnd - resource.startTime > 200));
+                    if (slowResources.length) console.warn("Slow resources detected:", slowResources.map((r => r.name)));
+                }
+            };
+            function initializePageScripts() {
+                performanceMetrics.markPageLoadStart();
+                const formToggleButtons = document.querySelectorAll(".button-goto-form");
+                const popup3 = document.querySelector(".popup3");
+                formToggleButtons.forEach((button => {
+                    button.addEventListener("click", (() => {
+                        baranClicked = true;
+                        document.documentElement.classList.toggle("show-form");
+                        if (!baranClicked) return;
+                        if (popup3) {
+                            popup2.classList.remove("popup_show");
+                            document.documentElement.classList.add("popup-show");
+                            document.documentElement.classList.add("popup-show");
+                            popup3.classList.add("popup_show");
+                            popup3.style.animation = "popupAppear 0.5s forwards";
+                        }
+                    }));
+                }));
+                const gameRoulette = new GameRoulette;
+                const resetButton = document.querySelector(".reset-button");
+                if (resetButton) resetButton.addEventListener("click", (() => gameRoulette.resetGame()));
+                performanceMetrics.markPageLoadEnd();
+                performanceMetrics.trackResourceLoadTimes();
+            }
+            class GameRoulette {
+                constructor() {
+                    this.elements = {
+                        wheelImage: document.querySelector(".wheel-image img"),
+                        spinButtons: Array.from(document.querySelectorAll(".wheel-spin-button")),
+                        popup1: document.querySelector(".popup1"),
+                        popup2: document.querySelector(".popup2"),
+                        buttonNextGame: document.querySelector(".button-next-game"),
+                        gameCountDisplay: document.querySelector(".count")
+                    };
+                    this.config = {
+                        gameIndex: 0,
+                        stopAngles: [ 210, 299 ],
+                        remainingGames: 2,
+                        totalRotation: 0
+                    };
+                    this.state = {
+                        isSpinning: false
+                    };
+                    this.initializeEventListeners();
+                    this.resetWheelState();
+                    this.startButtonAnimation();
+                }
+                initializeEventListeners() {
+                    const {spinButtons, buttonNextGame} = this.elements;
+                    spinButtons.forEach((btn => btn.addEventListener("click", this.startGame.bind(this))));
+                    buttonNextGame.addEventListener("click", this.nextGame.bind(this));
+                }
+                resetWheelState() {
+                    const {wheelImage, gameCountDisplay} = this.elements;
+                    wheelImage.style.transform = "rotate(0deg)";
+                    gameCountDisplay.textContent = this.config.remainingGames;
+                }
+                startGame() {
+                    const {spinButtons, wheelImage, gameCountDisplay} = this.elements;
+                    const {remainingGames, stopAngles, gameIndex} = this.config;
+                    if (this.state.isSpinning || remainingGames <= 0) return;
+                    this.stopButtonAnimation();
+                    this.config.remainingGames--;
+                    gameCountDisplay.textContent = this.config.remainingGames;
+                    spinButtons.forEach((btn => btn.disabled = true));
+                    this.state.isSpinning = true;
+                    const targetStopAngle = stopAngles[gameIndex];
+                    const currentPosition = this.config.totalRotation;
+                    const additionalRotation = this.calculateRotation(currentPosition, targetStopAngle);
+                    const finalRotation = currentPosition + additionalRotation;
+                    this.config.totalRotation = finalRotation;
+                    wheelImage.style.transition = "transform 5s cubic-bezier(0.25, 0.1, 0.25, 1)";
+                    wheelImage.style.transform = `rotate(${finalRotation}deg)`;
+                    setTimeout((() => {
+                        this.addShakeEffect(finalRotation);
+                        setTimeout((() => {
+                            this.state.isSpinning = false;
+                            this.showPopup();
+                            if (this.config.remainingGames > 0) spinButtons.forEach((btn => btn.disabled = false));
+                        }), 1e3);
+                    }), 5e3);
+                }
+                calculateRotation(currentPosition, targetStopAngle) {
+                    let extra = targetStopAngle - currentPosition % 360;
+                    if (extra <= 0) extra += 360;
+                    const spins = 5 + Math.floor(Math.random() * 3);
+                    return extra + 360 * spins;
+                }
+                addShakeEffect(baseAngle) {
+                    const {wheelImage} = this.elements;
+                    const shakeOffsets = [ -2, 1, -1, 0 ];
+                    let idx = 0;
+                    const iv = setInterval((() => {
+                        if (idx >= shakeOffsets.length) {
+                            clearInterval(iv);
+                            wheelImage.style.transition = "transform 0.1s ease-out";
+                            wheelImage.style.transform = `rotate(${baseAngle}deg)`;
+                            return;
+                        }
+                        wheelImage.style.transition = "transform 0.1s ease-out";
+                        wheelImage.style.transform = `rotate(${baseAngle + shakeOffsets[idx++]}deg)`;
+                    }), 100);
+                }
+                showPopup() {
+                    const {popup1, popup2} = this.elements;
+                    const {gameIndex} = this.config;
+                    document.documentElement.classList.add("popup-show");
+                    const popup = gameIndex === 0 ? popup1 : popup2;
+                    popup.classList.add("popup_show");
+                    popup.style.animation = "popupAppear 0.5s forwards";
+                }
+                nextGame() {
+                    const {popup1, popup2} = this.elements;
+                    const {gameIndex, stopAngles} = this.config;
+                    const popup = gameIndex === 0 ? popup1 : popup2;
+                    popup.style.animation = "popupDisappear 0.3s forwards";
+                    setTimeout((() => {
+                        document.documentElement.classList.remove("popup-show");
+                        popup.classList.remove("popup_show");
+                        if (this.config.gameIndex < stopAngles.length - 1) {
+                            this.config.gameIndex++;
+                            if (this.config.remainingGames > 0 && !this.state.isSpinning) this.startButtonAnimation();
+                        }
+                    }), 300);
+                }
+                resetGame() {
+                    const {spinButtons, wheelImage, gameCountDisplay, popup1, popup2} = this.elements;
+                    this.config.gameIndex = 0;
+                    this.config.remainingGames = 2;
+                    this.config.totalRotation = 0;
+                    this.state.isSpinning = false;
+                    gameCountDisplay.textContent = this.config.remainingGames;
+                    spinButtons.forEach((btn => btn.disabled = false));
+                    wheelImage.style.transition = "none";
+                    wheelImage.style.transform = "rotate(0deg)";
+                    document.documentElement.classList.remove("popup-show");
+                    popup1.classList.remove("popup_show");
+                    popup2.classList.remove("popup_show");
+                    this.startButtonAnimation();
+                }
+                startButtonAnimation() {
+                    const {spinButtons, wheelImage} = this.elements;
+                    this.stopButtonAnimation();
+                    spinButtons.forEach((btn => btn.classList.add("pulse-animation")));
+                    this.buttonGlowInterval = setInterval((() => spinButtons.forEach((btn => btn.classList.toggle("glow-effect")))), 1500);
+                    this.wheelTeaseInterval = setInterval((() => {
+                        const tease = Math.random() * 10 - 5;
+                        wheelImage.style.transition = "transform 0.5s ease-in-out";
+                        wheelImage.style.transform = `rotate(${this.config.totalRotation + tease}deg)`;
+                        setTimeout((() => {
+                            wheelImage.style.transition = "transform 0.5s ease-out";
+                            wheelImage.style.transform = `rotate(${this.config.totalRotation}deg)`;
+                        }), 500);
+                    }), 3e3);
+                }
+                stopButtonAnimation() {
+                    const {spinButtons} = this.elements;
+                    clearInterval(this.buttonGlowInterval);
+                    clearInterval(this.wheelTeaseInterval);
+                    spinButtons.forEach((btn => btn.classList.remove("pulse-animation", "glow-effect")));
+                }
+            }
             function moveElements() {
                 const isMobile = window.innerWidth <= 550;
                 const pageCounter = document.querySelector(".page__counter");
@@ -525,60 +585,80 @@
                     if (originalLogoContainer && pageLogo.parentElement !== originalLogoContainer) originalLogoContainer.appendChild(pageLogo);
                 }
             }
-            document.addEventListener("DOMContentLoaded", moveElements);
-            window.addEventListener("resize", moveElements);
+            function initMarquee(selector, speed = 60) {
+                if (typeof selector !== "string" || !selector) {
+                    console.error("Invalid selector provided");
+                    return;
+                }
+                const container = document.querySelector(selector);
+                if (!container || !container.children.length) {
+                    console.warn(`No valid container found for selector: ${selector}`);
+                    return;
+                }
+                const wrapper = document.createElement("div");
+                Object.assign(wrapper.style, {
+                    display: "flex",
+                    whiteSpace: "nowrap",
+                    willChange: "transform"
+                });
+                const originalLines = Array.from(container.children);
+                originalLines.forEach((line => {
+                    line.style.flex = "0 0 auto";
+                    wrapper.appendChild(line.cloneNode(true));
+                    wrapper.appendChild(line.cloneNode(true));
+                }));
+                container.innerHTML = "";
+                container.appendChild(wrapper);
+                const marqueeSpeed = typeof speed === "number" && speed > 0 ? speed : 60;
+                let offset = 0;
+                let lastTime = performance.now();
+                let animationFrame;
+                function animate(now) {
+                    const dt = (now - lastTime) / 1e3;
+                    lastTime = now;
+                    offset += marqueeSpeed * dt;
+                    const totalWidth = wrapper.offsetWidth / 2;
+                    if (offset >= totalWidth) offset -= totalWidth;
+                    wrapper.style.transform = `translateX(-${offset}px)`;
+                    animationFrame = requestAnimationFrame(animate);
+                }
+                animationFrame = requestAnimationFrame(animate);
+                container.addEventListener("mouseenter", (() => cancelAnimationFrame(animationFrame)));
+                container.addEventListener("mouseleave", (() => {
+                    lastTime = performance.now();
+                    animationFrame = requestAnimationFrame(animate);
+                }));
+            }
+            function safeInitialize() {
+                if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initializePageScripts); else requestAnimationFrame(initializePageScripts);
+                window.addEventListener("resize", moveElements);
+                requestAnimationFrame((() => initMarquee(".page__marquee.marquee-row", 60)));
+            }
+            safeInitialize();
         })();
-        function initMarquee(selector, speed = 60) {
-            if (typeof selector !== "string" || !selector) {
-                console.error("Invalid selector provided");
-                return;
-            }
-            const container = document.querySelector(selector);
-            if (!container) {
-                console.error(`No element found with selector: ${selector}`);
-                return;
-            }
-            if (!container.children.length) {
-                console.warn(`No child elements found in container: ${selector}`);
-                return;
-            }
-            const wrapper = document.createElement("div");
-            wrapper.style.display = "flex";
-            wrapper.style.whiteSpace = "nowrap";
-            wrapper.style.willChange = "transform";
-            const originalLines = Array.from(container.children);
-            originalLines.forEach((line => {
-                line.style.flex = "0 0 auto";
-                wrapper.appendChild(line.cloneNode(true));
-                wrapper.appendChild(line.cloneNode(true));
-            }));
-            container.innerHTML = "";
-            container.appendChild(wrapper);
-            const marqueeSpeed = typeof speed === "number" && speed > 0 ? speed : 60;
-            let offset = 0;
-            let lastTime = performance.now();
-            let animationFrame;
-            function animate(now) {
-                const dt = (now - lastTime) / 1e3;
-                lastTime = now;
-                offset += marqueeSpeed * dt;
-                const totalWidth = wrapper.offsetWidth / 2;
-                if (offset >= totalWidth) offset -= totalWidth;
-                wrapper.style.transform = `translateX(-${offset}px)`;
-                animationFrame = requestAnimationFrame(animate);
-            }
-            animationFrame = requestAnimationFrame(animate);
-            container.addEventListener("mouseenter", (() => {
-                cancelAnimationFrame(animationFrame);
-            }));
-            container.addEventListener("mouseleave", (() => {
-                lastTime = performance.now();
-                animationFrame = requestAnimationFrame(animate);
+        const initialUrl = window.location.href;
+        const queryParams = getQueryParams(initialUrl);
+        function getQueryParams(url) {
+            const queryString = url.split("?")[1];
+            if (!queryString) return {};
+            const params = new URLSearchParams(queryString);
+            const paramsObj = {};
+            for (const [key, value] of params.entries()) paramsObj[key] = value;
+            return paramsObj;
+        }
+        function appendQueryParamsToLinks() {
+            const links = document.querySelectorAll("a");
+            links.forEach((link => {
+                link.addEventListener("click", (function(event) {
+                    event.preventDefault();
+                    const newUrl = new URL(link.href);
+                    for (const key in queryParams) newUrl.searchParams.set(key, queryParams[key]);
+                    link.href = newUrl.toString();
+                    window.location.href = link.href;
+                }));
             }));
         }
-        document.addEventListener("DOMContentLoaded", (() => {
-            initMarquee(".page__marquee.marquee-row", 60);
-        }));
+        appendQueryParamsToLinks();
         window["FLS"] = true;
     })();
 })();
