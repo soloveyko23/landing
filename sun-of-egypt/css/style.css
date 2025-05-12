@@ -1242,8 +1242,8 @@ html {
     background: url(../img/roullete/button-mob.webp) 0 0/cover no-repeat
   }
   .page .game-container>.game__roulette .wheel-spin-button {
-    min-height: min(18.5vmin,10.5vmax);
-    min-width: min(18.5vmin,10.5vmax)
+    min-height: min(15.5vmin,10.5vmax)!important;
+    min-width: min(15.5vmin,10.5vmax)!important
   }
   .page .game-container .game__roulette .wheel-pointer img {
     width: min(6vmin,3vmax)
