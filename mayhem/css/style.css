@@ -1232,10 +1232,10 @@ html {
   }
   .button {
     background: url(../img/btn-bg-mob.webp) 0 0/100% 100% no-repeat;
-    width: min(60vmin,40vmax);
+    width: min(60vmin,40vmax)!important;
     min-width: 40vmin;
     height: min(12vmin,6vmax);
-    font-size: min(4vmin,3vmax)
+    font-size: min(4vmin,3vmax)!important
   }
   .marquee-row {
     z-index: 7;
@@ -1287,12 +1287,6 @@ html {
     font-size: min(3.75vmin,1.5vmax)
   }
 }
-@media (max-width:63.99875em)and (max-height:800px) {
-  .page__header {
-    margin: 0!important;
-    max-width: 100%!important
-  }
-}
 @media (max-width:63.99875em)and (min-height:57.5em) {
   .page .game-container>.game__roulette .wheel-spin-button {
     min-height: min(19vmin,14vmax);
@@ -1319,6 +1313,12 @@ html {
   .page__items-item.item-3 {
     bottom: 5%;
     left: -7%
+  }
+}
+@media (max-width:63.99875em)and (max-height:800px)and (min-width:768px) {
+  .page__header {
+    margin: 0!important;
+    max-width: 100%!important
   }
 }
 @media (min-width:550px)and (max-width:1024px) {
