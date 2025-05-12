@@ -1084,10 +1084,10 @@ html {
   }
   .button {
     background: url(../img/btn-bg-mob.webp) 0 0/100% 100% no-repeat;
-    width: min(60vmin,40vmax);
+    width: min(60vmin,40vmax)!important;
     min-width: 40vmin;
     height: min(12vmin,6vmax);
-    font-size: min(4vmin,3vmax)
+    font-size: min(4vmin,3vmax)!important
   }
   .marquee-row {
     z-index: 7;
