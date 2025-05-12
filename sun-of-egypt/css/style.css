@@ -706,6 +706,15 @@ html {
   width: min(5vmin,2vmax);
   height: min(5vmin,2vmax)
 }
+@media (min-width:63.99875em) {
+  .page .game-container {
+    margin-top: min(-3vmin,2vmax)
+  }
+  .button {
+    font-size: min(3.45vmin,1vmax);
+    width: min(40vmin,18vmax)
+  }
+}
 @media (min-width:550px) {
   body::before {
     background: #000 url(../img/bg-main.webp) center/cover
@@ -935,15 +944,6 @@ html {
     margin-top: min(-5vmin,-2vmax)
   }
 }
-@media (min-width:64em) {
-  .page .game-container {
-    margin-top: min(-3vmin,2vmax)
-  }
-  .button {
-    font-size: min(3.45vmin,1vmax);
-    width: min(40vmin,18vmax)
-  }
-}
 @media (min-width:75em) {
   .page .game-container>.game__roulette .wheel-spin-button {
     min-height: min(20vmin,15vmax);
@@ -1025,36 +1025,6 @@ html {
   }
   .page__right {
     margin-top: min(10vmin,6vmax)
-  }
-}
-@media (max-width:64em)and (min-height:900px) {
-  .page__items-mob-item.item-all img {
-    width: 170vw
-  }
-}
-@media (max-width:64em)and (max-height:800px) {
-  .page__header {
-    margin: 0!important;
-    max-width: 100%!important
-  }
-}
-@media (max-width:64em) {
-  .page .game-container {
-    margin-top: min(5vmin,4vmax)
-  }
-  .button {
-    width: min(40vmin,25vmax);
-    font-size: min(3.75vmin,1.5vmax)
-  }
-}
-@media (max-width:64em)and (min-height:57.5em) {
-  .page .game-container>.game__roulette .wheel-spin-button {
-    min-height: min(19vmin,14vmax);
-    min-width: min(19vmin,14vmax)
-  }
-  .page .game-container .game__roulette .wheel-image img {
-    width: min(65vmin,45vmax);
-    height: min(65vmin,45vmax)
   }
 }
 @media (max-width:1024px)and (min-height:900px) {
@@ -1296,12 +1266,42 @@ html {
     width: min(40vmin,30vmax)
   }
 }
-@media (min-width:550px)and (max-width:64em)and (min-height:900px) {
+@media (max-width:63.99875em)and (min-height:900px) {
+  .page__items-mob-item.item-all img {
+    width: 170vw
+  }
+}
+@media (max-width:63.99875em)and (max-height:800px) {
+  .page__header {
+    margin: 0!important;
+    max-width: 100%!important
+  }
+}
+@media (max-width:63.99875em) {
+  .page .game-container {
+    margin-top: min(5vmin,4vmax)
+  }
+  .button {
+    width: min(40vmin,25vmax);
+    font-size: min(3.75vmin,1.5vmax)
+  }
+}
+@media (max-width:63.99875em)and (min-height:57.5em) {
+  .page .game-container>.game__roulette .wheel-spin-button {
+    min-height: min(19vmin,14vmax);
+    min-width: min(19vmin,14vmax)
+  }
+  .page .game-container .game__roulette .wheel-image img {
+    width: min(65vmin,45vmax);
+    height: min(65vmin,45vmax)
+  }
+}
+@media (min-width:550px)and (max-width:63.99875em)and (min-height:900px) {
   .page__items-item.item-all img {
     width: 170vw
   }
 }
-@media (min-width:550px)and (max-width:64em)and (min-height:920px) {
+@media (min-width:550px)and (max-width:63.99875em)and (min-height:920px) {
   .page__items-item.item-1 {
     bottom: 1%;
     right: 0
@@ -1323,7 +1323,7 @@ html {
     display: none
   }
 }
-@media (max-width:75em)and (min-width:64em) {
+@media (max-width:75em)and (min-width:63.99875em) {
   .page .game-container>.game__roulette .wheel-spin-button {
     min-height: min(16vmin,9vmax);
     min-width: min(16vmin,9vmax)
