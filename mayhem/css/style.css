@@ -1245,6 +1245,14 @@ html {
   .page .game-container {
     z-index: 3
   }
+  .page .game-container>.game__roulette .wheel-spin-button {
+    min-height: min(20vmin,10.5vmax);
+    min-width: min(20vmin,10.5vmax)
+  }
+  .page .game-container .game__roulette .wheel-image img {
+    width: min(65vmin,40vmax);
+    height: min(65vmin,40vmax)
+  }
   .page .game-container .game__roulette .wheel-pointer img {
     width: min(6vmin,3vmax)
   }
@@ -1294,12 +1302,6 @@ html {
 @media (max-width:25em)and (min-height:720px) {
   .page__game-logo img {
     width: min(40vmin,30vmax)
-  }
-}
-@media (max-width:25em) {
-  .page .game-container>.game__roulette .wheel-spin-button {
-    min-height: min(20vmin,10.5vmax);
-    min-width: min(20vmin,10.5vmax)
   }
 }
 @media (min-width:550px)and (max-width:64em)and (min-height:900px) {
