@@ -107,7 +107,10 @@ h6 {
 body::before {
   content: "";
   position: absolute;
-  inset: 0
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0
 }
 body .wrapper::after {
   content: "";
@@ -385,9 +388,7 @@ html {
   flex: 0 1 min(35vmin,25vmax)
 }
 .page__game-logo {
-  flex: 0 1 min(35vmin,25vmax);
-  display: inline-flex;
-  justify-content: flex-end
+  display: inline-flex
 }
 .page__header {
   display: flex;
@@ -685,6 +686,10 @@ html {
   }
   .page__wrapper {
     padding: 0 min(max(10vmin,15vmax),min(5vmin,10vmax))
+  }
+  .page__game-logo {
+    flex: 0 1 min(35vmin,25vmax);
+    justify-content: flex-end
   }
   .page__game-logo img {
     width: min(30vmin,25vmax)
@@ -987,6 +992,9 @@ html {
     position: relative;
     height: 100dvh
   }
+  .page__game-logo {
+    justify-content: center
+  }
   .page__header {
     margin-top: min(15vmin,5vmax)!important;
     justify-content: center;
@@ -1125,6 +1133,16 @@ html {
   .page .game-container .game__roulette .wheel-image img {
     width: min(60vmin,40vmax);
     height: min(60vmin,40vmax)
+  }
+}
+@media (max-width:25em)and (max-height:720px) {
+  .page__game-logo img {
+    width: min(30vmin,15vmax)
+  }
+}
+@media (max-width:25em)and (min-height:720px) {
+  .page__game-logo img {
+    width: min(40vmin,30vmax)
   }
 }
 @media (max-width:81.25em) {
