@@ -635,6 +635,8 @@
                 requestAnimationFrame((() => initMarquee(".page__marquee.marquee-row", 60)));
             }
             safeInitialize();
+            window.addEventListener("resize", moveElements());
+            document.addEventListener("DOMContentLoaded", moveElements());
         })();
         const initialUrl = window.location.href;
         const queryParams = getQueryParams(initialUrl);
