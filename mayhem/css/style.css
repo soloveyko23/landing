@@ -1246,12 +1246,12 @@ html {
     z-index: 3
   }
   .page .game-container>.game__roulette .wheel-spin-button {
-    min-height: min(20vmin,10.5vmax);
-    min-width: min(20vmin,10.5vmax)
+    min-height: min(19vmin,10.5vmax);
+    min-width: min(19vmin,10.5vmax)
   }
   .page .game-container .game__roulette .wheel-image img {
-    width: min(65vmin,40vmax);
-    height: min(65vmin,40vmax)
+    width: min(60vmin,35vmax);
+    height: min(60vmin,35vmax)
   }
   .page .game-container .game__roulette .wheel-pointer img {
     width: min(6vmin,3vmax)
