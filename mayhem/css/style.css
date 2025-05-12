@@ -417,7 +417,7 @@ html {
   transition: all .3s
 }
 .page__items-mob-item.item-all {
-  bottom: min(45vmin,20vmax);
+  bottom: min(25vmin,20vmax);
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
