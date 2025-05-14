@@ -460,8 +460,8 @@ body::after {
   transition: opacity .6s cubic-bezier(.4,0,.2,1);
   pointer-events: none;
   z-index: 149;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px)
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px)
 }
 .popup-show body::after {
   opacity: 1
@@ -615,8 +615,7 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  padding: min(3vmin,10vmax) 0 min(5vmin,10vmax) 0
+  position: relative
 }
 .popup__prize img {
   position: relative;
@@ -901,8 +900,7 @@ body::after {
 }
 .page__heros-hero.hero-one img {
   -webkit-animation: name 25s infinite ease;
-  animation: name 25s infinite ease;
-  width: min(90vmin,90vmax)
+  animation: name 25s infinite ease
 }
 .page__parallax-item {
   position: absolute;
@@ -1377,6 +1375,9 @@ body::after {
     width: 90vw;
     height: min(70vmin,80vmax)
   }
+  .popup__prize {
+    padding: min(3vmin,10vmax) 0 min(5vmin,10vmax) 0
+  }
   .popup__prize img {
     width: min(30vmin,15vmax);
     height: min(30vmin,15vmax)
@@ -1394,6 +1395,9 @@ body::after {
   .footer__app-item svg {
     width: min(12vmin,20vmax);
     height: min(6vmin,7vmax)
+  }
+  .page__heros-hero.hero-one img {
+    width: min(90vmin,90vmax)
   }
   .page__parallax-item-4 {
     bottom: min(-15vmin,5vmax);
@@ -1585,7 +1589,8 @@ body::after {
 @media (max-width:1024.98px)and (min-height:600px) {
   .page__header {
     flex-direction: column;
-    gap: min(10vmin,5vmax)
+    gap: min(5vmin,2.5vmax);
+    margin-bottom: min(5vmin,2.5vmax)
   }
 }
 @media (max-width:768px) {
@@ -1651,7 +1656,7 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: min(15vmin,10vmax)
+    margin-bottom: min(5vmin,2vmax)
   }
   .popup__header {
     margin-bottom: min(30vmin,20vmax)
@@ -1674,8 +1679,8 @@ body::after {
     height: min(90vmin,80vmax)
   }
   .popup__prize img {
-    width: min(40vmin,20vmax);
-    height: min(40vmin,20vmax)
+    width: min(50vmin,30vmax);
+    height: min(50vmin,30vmax)
   }
   .preloader__logo svg {
     width: 100%
@@ -1698,6 +1703,9 @@ body::after {
   }
   .footer__desc {
     font-size: min(2.8vmin,1.8vmax)
+  }
+  .page__heros-hero.hero-one img {
+    width: min(80vmin,80vmax)
   }
   .page__parallax-item-1 {
     bottom: 0;
