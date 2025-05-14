@@ -1215,6 +1215,10 @@ html {
     min-height: min(15.5vmin,10.5vmax)!important;
     min-width: min(15.5vmin,10.5vmax)!important
   }
+  .page .game-container .game__roulette .wheel-image img {
+    width: min(80vmin,40vmax)!important;
+    height: min(80vmin,40vmax)!important
+  }
   .page .game-container .game__roulette .wheel-pointer img {
     width: min(6vmin,3vmax)
   }
@@ -1285,6 +1289,10 @@ html {
     min-height: min(19vmin,14vmax);
     min-width: min(19vmin,14vmax)
   }
+  .page .game-container .game__roulette .wheel-image img {
+    width: min(65vmin,45vmax);
+    height: min(65vmin,45vmax)
+  }
 }
 @media (min-width:550px)and (max-width:63.99875em)and (min-height:900px) {
   .page__items-item.item-all img {
@@ -1333,12 +1341,6 @@ html {
   .page .game-container>.game__roulette .wheel-spin-button {
     min-height: min(24vmin,14.5vmax);
     min-width: min(24vmin,14.5vmax)
-  }
-}
-@media (max-width:63.99875em)and (min-height:57.5em)and (min-width:1024px) {
-  .page .game-container .game__roulette .wheel-image img {
-    width: min(80vmin,40vmax);
-    height: min(80vmin,40vmax)
   }
 }
 @media (max-height:500px) {
