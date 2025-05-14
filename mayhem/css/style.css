@@ -1224,8 +1224,8 @@ html {
     min-width: min(19dvmin,10.5dvmax)
   }
   .page .game-container .game__roulette .wheel-image img {
-    width: min(60dvmin,35dvmax);
-    height: min(60dvmin,35dvmax)
+    width: min(80dvmin,40dvmax)!important;
+    height: min(80dvmin,40dvmax)!important
   }
   .page .game-container .game__roulette .wheel-pointer img {
     width: min(6dvmin,3dvmax)
