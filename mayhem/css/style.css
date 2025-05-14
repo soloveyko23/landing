@@ -136,13 +136,7 @@ body .wrapper::before {
 .wrapper {
   min-height: 100%;
   display: flex;
-  flex-direction: column;
-  overflow: hidden
-}
-@supports (overflow:clip) {
-  .wrapper {
-    overflow: clip
-  }
+  flex-direction: column
 }
 .wrapper>main {
   flex: 1 1 auto
@@ -407,9 +401,6 @@ html {
 .show-form .page__content {
   z-index: 200
 }
-.page {
-  overflow: hidden
-}
 .page__items-mob-item {
   position: absolute;
   z-index: 5;
@@ -417,7 +408,7 @@ html {
   transition: all .3s
 }
 .page__items-mob-item.item-all {
-  bottom: min(25vmin,20vmax);
+  bottom: min(25vmin,10vmax);
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -1224,8 +1215,8 @@ html {
     min-width: min(19vmin,10.5vmax)
   }
   .page .game-container .game__roulette .wheel-image img {
-    width: min(80vmin,40vmax)!important;
-    height: min(80vmin,40vmax)!important
+    width: min(70vmin,35vmax);
+    height: min(70vmin,35vmax)
   }
   .page .game-container .game__roulette .wheel-pointer img {
     width: min(6vmin,3vmax)
