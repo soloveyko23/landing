@@ -387,6 +387,11 @@
                 }));
             }
         }), 0);
+        function setVh() {
+            document.documentElement.style.setProperty("--vh", `${window.innerHeight * .01}px`);
+        }
+        window.addEventListener("resize", setVh);
+        setVh();
         (function() {
             let baranClicked = false;
             const performanceMetrics = {
