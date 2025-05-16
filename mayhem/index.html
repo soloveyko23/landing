@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en">
 
 <head>
 	<title>Gorilla.ua</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20250514211524">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250516211522">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,11 +24,7 @@
 					<div class="page__scratches">
 						<img src="img/scratches.webp" alt="Scratches">
 					</div>
-					<div class="page__items-mob">
-						<div class="page__items-mob-item item-all">
-							<img src="img/prize-all-mob.webp" alt="Prize All">
-						</div>
-					</div>
+
 					<div class="page__items">
 						<div class="page__items-item item-all">
 							<img src="img/prize-all.webp" alt="Prize All">
@@ -102,15 +98,23 @@
 
 						</div>
 						<div class="game__roulette-wrapper">
-							<div class="game__roulette-game-logo">
-
+							<div class="page__items-mob">
+								<div class="page__items-mob-item item-all">
+									<img src="img/prize-all-mob.webp" alt="Prize All">
+								</div>
 							</div>
-							<button type="button" class="wheel-spin-button button">
-								Крути!
-							</button>
-							<div class="game__roulette-counter">
+							<div class="roulette-wrapper__body">
+								<div class="game__roulette-game-logo">
 
+								</div>
+								<button type="button" class="wheel-spin-button button">
+									Крути!
+								</button>
+								<div class="game__roulette-counter">
+
+								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
@@ -219,7 +223,7 @@
 		<div id="popup1" aria-hidden="true" class="popup popup1">
 			<div class="popup__wrapper">
 				<div class="popup__content">
-
+					<button type="button" class="popup__close" data-close></button>
 					<div class="popup__body">
 						<div class="popup__body-content">
 							<img src="img/popup/popup1.webp" alt="popup content">
@@ -234,7 +238,7 @@
 		<div id="popup2" aria-hidden="true" class="popup popup2">
 			<div class="popup__wrapper">
 				<div class="popup__content">
-
+					<button type="button" class="popup__close" data-close></button>
 					<div class="popup__body">
 						<div class="popup__body-content">
 							<img src="img/popup/popup2.webp" alt="popup content">
@@ -251,7 +255,7 @@
 		<div id="popup3" aria-hidden="true" class="popup popup-final popup3">
 			<div class="popup__wrapper">
 				<div class="popup__content">
-
+					<button type="button" class="popup__close" data-close></button>
 					<div class="popup__body">
 
 						<div class="popup__header">
@@ -264,9 +268,110 @@
 						</div>
 						<div class="popup__wrap">
 							<div class="popup__form">
-								<form action="">
-									ТУТ БУДЕТ ФОРМА!
-								</form>
+								<div class="c-main__reg c-reg">
+									<div class="c-reg__header">
+										<div class="c-reg__title">Реєстрація</div>
+									</div>
+
+									<div class="c-reg__form">
+										<form id="registration-form" class="form" method="post" autocomplete="off">
+											<!-- Hidden Fields -->
+											<input type="hidden" name="nnBonus" value="377">
+											<input type="hidden" name="formName" value="LANDING_REGISTRATION_PHONE">
+											<input type="hidden" name="bonusProductType" value="casino">
+											<input type="hidden" name="selectedLanguage" value="uk">
+											<input type="hidden" name="redirectTo" value="https://test-ipv6.biz/">
+											<input type="hidden" name="referer" value="https://strpm323-ver.com/">
+											<div id="errormsg" class="form-error" style="display: none;"></div>
+
+											<!-- Country Code Selector -->
+											<div class="form-field-group">
+												<div class="form-field">
+													<div class="form-field__country-selector">
+														<select name="countryCode" data-class-modif="form">
+															<option value="1" selected data-asset="img/flags/ua.svg" data-phone-code="+380">Україна +380</option>
+															<option value="4" data-asset="img/flags/kz.svg" data-phone-code="+7">Kazakhstan +7</option>
+															<option value="5" data-asset="img/flags/at.svg" data-phone-code="+43">Austria +43</option>
+															<option value="6" data-asset="img/flags/au.svg" data-phone-code="+61">Australia +61</option>
+															<option value="7" data-asset="img/flags/be.svg" data-phone-code="+32">Belgium +32</option>
+															<option value="8" data-asset="img/flags/cy.svg" data-phone-code="+357">Cyprus +357</option>
+															<option value="9" data-asset="img/flags/cz.svg" data-phone-code="+420">Czech Republic +420</option>
+															<option value="10" data-asset="img/flags/ca.svg" data-phone-code="+1">United States +1</option>
+															<option value="11" data-asset="img/flags/dk.svg" data-phone-code="+45">Denmark +45</option>
+															<option value="12" data-asset="img/flags/fr.svg" data-phone-code="+33">France +33</option>
+															<option value="13" data-asset="img/flags/fi.svg" data-phone-code="+358">Finland +358</option>
+															<option value="14" data-asset="img/flags/de.svg" data-phone-code="+49">Germany +49</option>
+															<option value="15" data-asset="img/flags/ge.svg" data-phone-code="+995">Georgia +995</option>
+															<option value="16" data-asset="img/flags/gr.svg" data-phone-code="+30">Greece +30</option>
+															<option value="17" data-asset="img/flags/gb.svg" data-phone-code="+44">United Kingdom +44</option>
+															<option value="18" data-asset="img/flags/it.svg" data-phone-code="+39">Italy +39</option>
+															<option value="19" data-asset="img/flags/ie.svg" data-phone-code="+353">Ireland +353</option>
+															<option value="20" data-asset="img/flags/is.svg" data-phone-code="+354">Iceland +354</option>
+															<option value="21" data-asset="img/flags/lv.svg" data-phone-code="+371">Latvia +371</option>
+															<option value="22" data-asset="img/flags/lu.svg" data-phone-code="+352">Luxembourg +352</option>
+															<option value="23" data-asset="img/flags/no.svg" data-phone-code="+47">Norway +47</option>
+															<option value="24" data-asset="img/flags/nz.svg" data-phone-code="+64">New Zealand +64</option>
+															<option value="25" data-asset="img/flags/nl.svg" data-phone-code="+31">Netherlands +31</option>
+															<option value="26" data-asset="img/flags/pt.svg" data-phone-code="+351">Portugal +351</option>
+															<option value="27" data-asset="img/flags/pl.svg" data-phone-code="+48">Poland +48</option>
+															<option value="28" data-asset="img/flags/ch.svg" data-phone-code="+41">Switzerland +41</option>
+															<option value="29" data-asset="img/flags/se.svg" data-phone-code="+46">Sweden +46</option>
+															<option value="30" data-asset="img/flags/es.svg" data-phone-code="+34">Spain +34</option>
+															<option value="31" data-asset="img/flags/si.svg" data-phone-code="+386">Slovenia +386</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-field form-field-input">
+													<div class="form-field__input-container">
+														<label class="form-field__label" for="phone">Номер телефону</label>
+														<input class="form-field__input input-phone" type="tel" id="phone" name="phone" placeholder="" data-required>
+													</div>
+												</div>
+											</div>
+
+											<!-- Password -->
+											<div class="form-field form-field-password">
+												<div class="form-field__input-container">
+													<label class="form-field__label" for="password">Пароль</label>
+													<input class="form-field__input" type="password" id="password" name="password" placeholder="" data-required>
+													<button class="form-field__toggle-password" type="button">
+														<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M11 4.5C8.66 4.5 6.75 6.41 6.75 8.75C6.75 11.09 8.66 13 11 13C13.34 13 15.25 11.09 15.25 8.75C15.25 6.41 13.34 4.5 11 4.5ZM11 11.5C9.49 11.5 8.25 10.26 8.25 8.75C8.25 7.24 9.49 6 11 6C12.51 6 13.75 7.24 13.75 8.75C13.75 10.26 12.51 11.5 11 11.5ZM11 1.5C6 1.5 1.73 4.61 0 9C1.73 13.39 6 16.5 11 16.5C16 16.5 20.27 13.39 22 9C20.27 4.61 16 1.5 11 1.5ZM11 15C6.83 15 3.32 12.73 1.7 9C3.32 5.27 6.83 3 11 3C15.17 3 18.68 5.27 20.3 9C18.68 12.73 15.17 15 11 15Z" fill="currentColor" />
+														</svg>
+													</button>
+												</div>
+
+												<!-- Password Requirements -->
+												<ul class="requirements">
+													<li class="requirements__item">мінімум 8 символів</li>
+													<li class="requirements__item">мінімум 1 цифра (0-9)</li>
+													<li class="requirements__item">мінімум 1 мала літера (a-z)</li>
+													<li class="requirements__item">мінімум 1 велика літера (A-Z)</li>
+												</ul>
+											</div>
+
+											<!-- Terms Agreement -->
+											<div class="agreement">
+												<div class="checkbox">
+													<input id="c_1" class="checkbox__input" type="checkbox" value="1" name="agreement" data-required>
+													<label for="c_1" class="checkbox__label">
+														<div class="agreement__text">
+															Я підтверджую, що мені є <strong>21 рік</strong>, що не маю обмежень в участі в азартних іграх; даю згоду на обробку моїх персональних даних; ознайомлений (-на) та приймаю умови договору оферти, <a href="#" class="agreement__link" data-popup="#popupRules">правила гри</a> і <a href="#" class="agreement__link" data-popup="#popupConditions">умови видачі бонусів</a>.
+														</div>
+													</label>
+
+												</div>
+
+											</div>
+
+											<div class="form-footer">
+												<button type="submit" class="form-submit">Зареєструватись</button>
+											</div>
+
+										</form>
+									</div>
+
+								</div>
 							</div>
 
 						</div>
@@ -276,6 +381,44 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Попапы с правилами игры и условиями бонусов -->
+	<div id="popupRules" aria-hidden="true" class="popup popup-rules">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button type="button" class="popup__close" data-close></button>
+				<div class="popup__body">
+					<div class="popup__header">
+						<h2>Правила гри</h2>
+					</div>
+					<div class="popup__body-content">
+						<p>Тут содержатся правила игры и использования сервиса.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="popupConditions" aria-hidden="true" class="popup popup-conditions">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button type="button" class="popup__close" data-close></button>
+				<div class="popup__body">
+					<div class="popup__header">
+						<h2>Умови видачі бонусів</h2>
+					</div>
+					<div class="popup__body-content">
+						<p>Тут содержатся условия выдачи бонусов и их использования.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Script for FingerprintJS -->
+
+
+
 	</div>
 	<!-- Документація: https://template.fls.guru/template-docs/modul-preloader.html -->
 
@@ -435,7 +578,12 @@
 			preloader();
 		</script>
 	</div>
-	<script src="js/app.min.js?_v=20250514211524"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js?_v=20250516211522"></script>
+	<script>
+		// Правильная инициализация FingerprintJS
+		window.FingerprintJS = FingerprintJS;
+	</script>
+	<script src="js/app.min.js?_v=20250516211522"></script>
 </body>
 
 </html>
