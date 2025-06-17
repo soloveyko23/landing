@@ -215,6 +215,12 @@ h6 {
   align-items: center;
   gap: .625rem
 }
+.c-reg__form .form-field-group .form-field {
+  align-self: self-start
+}
+.c-reg__form .form-field-group .form-error {
+  margin-top: .5rem
+}
 .c-reg__form .form-field-group .form-field-input {
   width: 100%
 }
@@ -269,6 +275,21 @@ h6 {
   color: #868797;
   font-style: .75rem
 }
+.c-reg__form .form-field-password .form-field__input {
+  padding-right: 3rem
+}
+.c-reg__form .form-field-password .form-field__input::-webkit-input-placeholder {
+  font-size: .875rem
+}
+.c-reg__form .form-field-password .form-field__input:-ms-input-placeholder {
+  font-size: .875rem
+}
+.c-reg__form .form-field-password .form-field__input::-ms-input-placeholder {
+  font-size: .875rem
+}
+.c-reg__form .form-field-password .form-field__input::placeholder {
+  font-size: .875rem
+}
 .c-reg__form .form-field-password .form-field__input-container {
   position: relative;
   margin-bottom: .75rem
@@ -283,11 +304,13 @@ h6 {
   height: 1.25rem;
   flex: 0 0 1.25rem;
   transition: all .3s ease;
-  background: url(../img/icons/closed.svg) 0 0/contain no-repeat;
   cursor: pointer
 }
+.c-reg__form .form-field-password .form-field__toggle-password:not(.show-password) {
+  background: rgba(0,0,0,0) url(../img/icons/closed.svg) 0 0/contain no-repeat
+}
 .c-reg__form .form-field-password .form-field__toggle-password.show-password {
-  background: url(../img/icons/opened.svg) 0 0/contain no-repeat
+  background: rgba(0,0,0,0) url(../img/icons/opened.svg) 0 0/contain no-repeat
 }
 .c-reg__form .form-field-password .form-field__toggle-password:hover {
   opacity: .8
@@ -369,8 +392,8 @@ h6 {
   display: flex;
   min-width: 0;
   align-items: center;
-  height: 3.375rem;
-  padding: .5rem .875rem;
+  height: 3.25rem;
+  padding: .25rem .875rem;
   gap: .625rem
 }
 .select__value .select__text {
@@ -608,6 +631,12 @@ body .wrapper::before {
   align-items: center;
   gap: .625rem
 }
+.c-reg__form .form-field-group .form-field {
+  align-self: self-start
+}
+.c-reg__form .form-field-group .form-error {
+  margin-top: .5rem
+}
 .c-reg__form .form-field-group .form-field-input {
   width: 100%
 }
@@ -662,6 +691,21 @@ body .wrapper::before {
   color: #868797;
   font-style: .75rem
 }
+.c-reg__form .form-field-password .form-field__input {
+  padding-right: 3rem
+}
+.c-reg__form .form-field-password .form-field__input::-webkit-input-placeholder {
+  font-size: .875rem
+}
+.c-reg__form .form-field-password .form-field__input:-ms-input-placeholder {
+  font-size: .875rem
+}
+.c-reg__form .form-field-password .form-field__input::-ms-input-placeholder {
+  font-size: .875rem
+}
+.c-reg__form .form-field-password .form-field__input::placeholder {
+  font-size: .875rem
+}
 .c-reg__form .form-field-password .form-field__input-container {
   position: relative;
   margin-bottom: .75rem
@@ -676,11 +720,13 @@ body .wrapper::before {
   height: 1.25rem;
   flex: 0 0 1.25rem;
   transition: all .3s ease;
-  background: url(../img/icons/closed.svg) 0 0/contain no-repeat;
   cursor: pointer
 }
+.c-reg__form .form-field-password .form-field__toggle-password:not(.show-password) {
+  background: rgba(0,0,0,0) url(../img/icons/closed.svg) 0 0/contain no-repeat
+}
 .c-reg__form .form-field-password .form-field__toggle-password.show-password {
-  background: url(../img/icons/opened.svg) 0 0/contain no-repeat
+  background: rgba(0,0,0,0) url(../img/icons/opened.svg) 0 0/contain no-repeat
 }
 .c-reg__form .form-field-password .form-field__toggle-password:hover {
   opacity: .8
@@ -762,8 +808,8 @@ body .wrapper::before {
   display: flex;
   min-width: 0;
   align-items: center;
-  height: 3.375rem;
-  padding: .5rem .875rem;
+  height: 3.25rem;
+  padding: .25rem .875rem;
   gap: .625rem
 }
 .select__value .select__text {
@@ -994,6 +1040,61 @@ body::after {
 .lock .popup__content {
   visibility: visible
 }
+.popup-info {
+  font-family: SFProText
+}
+.popup-info .popup__header {
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center
+}
+.popup-info .popup__content {
+  border-radius: 1.5rem;
+  background-color: #0a0a0a;
+  max-width: 27rem;
+  box-shadow: 0 .25rem 4.6875rem 0 rgba(0,255,119,.3);
+  font-family: SFProText;
+  padding: 1rem;
+  max-height: 80vh;
+  overflow-y: auto
+}
+.popup-info .popup__content::-webkit-scrollbar {
+  width: 0
+}
+.popup-info .popup__body-content {
+  width: 100%!important;
+  color: #fff
+}
+.popup-info .popup__body-content::before {
+  display: none!important
+}
+.popup-info .popup__body-content div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .75rem
+}
+.popup-info .popup__body-content b {
+  margin-bottom: .875rem;
+  display: block
+}
+.popup-info .popup__body-content a {
+  color: #cf0
+}
+.popup-info .popup__body-content p {
+  line-height: 1.3
+}
+.popup-info .popup__body-content ol,
+.popup-info .popup__body-content ul {
+  padding-left: 2rem
+}
+.popup-info .popup__body-content ol li,
+.popup-info .popup__body-content ul li {
+  margin-bottom: .5rem;
+  line-height: 1.3
+}
 .ibg {
   width: 100%;
   height: 100%;
@@ -1088,7 +1189,8 @@ body::after {
   color: #e6e6e6
 }
 html {
-  background-color: #000
+  background-color: #000;
+  overflow-x: hidden
 }
 :root {
   --vh: 1vh
@@ -1409,6 +1511,24 @@ html {
 .marquee-row .marquee-line svg {
   width: min(5vmin,2vmax);
   height: min(5vmin,2vmax)
+}
+.c-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.c-loader .c-loader__item {
+  width: 10vw;
+  height: 10vw;
+  min-width: 4.375rem;
+  min-height: 4.375rem
 }
 @media (min-width:63.99875em) {
   .page .game-container {
@@ -1801,7 +1921,7 @@ html {
   .page::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: -5%;
     left: 0;
     right: 0;
     display: block;
@@ -1840,7 +1960,7 @@ html {
     justify-content: center
   }
   .page__header {
-    margin-top: min(15vmin,5vmax)!important;
+    margin-top: min(1vmin,3vmax)!important;
     justify-content: center;
     position: relative;
     z-index: 10
@@ -1977,7 +2097,8 @@ html {
     right: 0
   }
   .page__items-item.item-2 {
-    bottom: 65%
+    bottom: 65%;
+    left: 0!important
   }
   .page__items-item.item-3 {
     bottom: 5%;
